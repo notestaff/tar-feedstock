@@ -19,14 +19,16 @@ tar to be used for incremental and full backups.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/tar-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/tar-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/tar-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/tar-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/tar-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/tar-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/tar-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/tar-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/tar/badges/version.svg)](https://anaconda.org/conda-forge/tar)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/tar/badges/downloads.svg)](https://anaconda.org/conda-forge/tar)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-tar-green.svg)](https://anaconda.org/conda-forge/tar) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tar.svg)](https://anaconda.org/conda-forge/tar) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tar.svg)](https://anaconda.org/conda-forge/tar) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tar.svg)](https://anaconda.org/conda-forge/tar) |
 
 Installing tar
 ==============
