@@ -12,13 +12,14 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: FORCE_UNSAFE_CONFIGURE=1 ./configure --prefix=$PREFIX && make && make check && make install
   skip: True  # [win]
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler('c') }}
+  host:
 
 test:
   commands:
