@@ -1,6 +1,6 @@
 {% set name = "tar" %}
-{% set version = "1.29" %}
-{% set sha256 = "cae466e6e58c7292355e7080248f244db3a4cf755f33f4fa25ca7f9a7ed09af0" %}
+{% set version = "1.32" %}
+{% set sha256 = "d0d3ae07f103323be809bc3eac0dcc386d52c5262499fe05511ac4788af1fdd8" %}
 
 package:
   name: {{ name|lower }}
@@ -8,17 +8,18 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: http://ftp.gnu.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: http://ftp.gnu.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.xz
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: FORCE_UNSAFE_CONFIGURE=1 ./configure --prefix=$PREFIX && make && make check && make install
   skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - xz
   host:
 
 test:
@@ -32,7 +33,6 @@ about:
   license_file: COPYING
   summary: 'GNU tape archive program'
 
-  # The remaining entries in this section are optional, but recommended
   description: |
     GNU tar saves many files together into a single tape or disk
     archive, and can restore individual files from the archive.  It includes
