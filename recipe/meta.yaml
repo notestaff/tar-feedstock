@@ -13,16 +13,22 @@ source:
 
 build:
   number: 0
-  script: FORCE_UNSAFE_CONFIGURE=1 ./configure --prefix=$PREFIX && make && make check && make install
+  script: mkdir -p $PREFIX/lib && FORCE_UNSAFE_CONFIGURE=1 ./configure --prefix=$PREFIX && make && make check && make install
   skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - xz
-  host:
-
+    - make
+    - binutils
+    - coreutils
+    - pkg-config
 test:
+  requires:
+    - make
+    - binutils
+    - coreutils
   commands:
     - tar --version | grep {{ version }}
 
