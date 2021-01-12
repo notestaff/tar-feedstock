@@ -4,7 +4,13 @@ set -euo pipefail
 
 mkdir -p $PREFIX/lib
 cp $BUILD_PREFIX/share/gnuconfig/config.* build-aux/
-FORCE_UNSAFE_CONFIGURE=1 ./configure --prefix=$PREFIX
+
+if [[ "$target_platform" == osx-* ]]; then
+  # This breaks the tests when the build is run as root (as on CI)
+  export gl_cv_func_mknod_works=no
+fi
+
+./configure --prefix=$PREFIX
 make -j${CPU_COUNT}
 make install
 
