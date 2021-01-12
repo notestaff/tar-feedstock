@@ -1,6 +1,5 @@
 {% set name = "tar" %}
-{% set version = "1.32" %}
-{% set sha256 = "d0d3ae07f103323be809bc3eac0dcc386d52c5262499fe05511ac4788af1fdd8" %}
+{% set version = "1.33" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +7,7 @@ package:
 
 source:
   url: http://ftp.gnu.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.xz
-  sha256: {{ sha256 }}
+  sha256: 66a8344b1dc83a411d311bd1547e0176e56cc311f28ee94a30f84dafb3d9067e
 
 build:
   number: 1
