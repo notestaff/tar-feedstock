@@ -7,38 +7,28 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: http://ftp.gnu.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.xz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  script: mkdir -p $PREFIX/lib && FORCE_UNSAFE_CONFIGURE=1 ./configure --prefix=$PREFIX && make && make check && make install && make installcheck
-  skip: True  # [not linux]
+  number: 1
+  skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - xz
     - make
-    - binutils
-    - coreutils
     - pkg-config
+    - gnuconfig
+  host:
+    - libiconv
 test:
-  requires:
-    - make
-    - binutils
-    - coreutils
-    - bzip2
-    - xz
-    - lzip
-    - lzop
   commands:
     - tar --version | grep {{ version }}
 
 about:
   home: https://www.gnu.org/software/tar/
-  license: GPLv3
+  license: GPL-3.0-or-later
   license_family: GPL
   license_file: COPYING
   summary: 'GNU tape archive program'
@@ -53,3 +43,4 @@ about:
 extra:
   recipe-maintainers:
     - notestaff
+    - xhochy
